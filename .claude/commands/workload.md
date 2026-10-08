@@ -1,11 +1,11 @@
-# /compliance
+# /workload
 
-Read docs/compliance.md. Separate cited legal principles from internal operating policies. Findings require a responsible reviewer and do not certify compliance.
+Read the relevant register first. Use actual references and operator-supplied facts. If a reference is ambiguous, show the candidates and stop the write.
 
 Run:
 
 ```bash
-npm run service -- compliance
+npm run service -- workload
 ```
 
 Replace example facts and dates with confirmed values. Append --json for structured output. Summarise the returned records, dates and missing facts. Do not invent an event or send anything.

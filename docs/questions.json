@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Which incidents missed both response and resolution deadlines?",
+    "command": "sla-risk"
+  },
+  {
+    "question": "Which urgent work has gone quiet for a week?",
+    "command": "attention"
+  },
+  {
+    "question": "Which expired-warranty assets also have repeated open incidents?",
+    "command": "asset-risk"
+  },
+  {
+    "question": "Which services combine critical status with overdue incidents?",
+    "command": "service-health"
+  },
+  {
+    "question": "Which recurring problems still have open incidents?",
+    "command": "problem-review"
+  },
+  {
+    "question": "Which planned changes affect services with active incidents?",
+    "command": "change-review"
+  },
+  {
+    "question": "Which owners carry the most overdue tickets?",
+    "command": "workload"
+  },
+  {
+    "question": "Which personal records need a retention review?",
+    "command": "compliance"
+  },
+  {
+    "question": "Which services have no accountable owner?",
+    "command": "services"
+  },
+  {
+    "question": "What happened before an incident was resolved?",
+    "command": "ticket --ticket=T-1"
+  }
+]

@@ -1,11 +1,11 @@
-# /compliance
+# /problem-review
 
-Read docs/compliance.md. Separate cited legal principles from internal operating policies. Findings require a responsible reviewer and do not certify compliance.
+Review the linked tickets, recorded root cause and workaround. A known error requires both cause and workaround.
 
 Run:
 
 ```bash
-npm run service -- compliance
+npm run service -- problem-review
 ```
 
 Replace example facts and dates with confirmed values. Append --json for structured output. Summarise the returned records, dates and missing facts. Do not invent an event or send anything.

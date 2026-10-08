@@ -1,11 +1,52 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
-    "file": "name",
+    "name": "incident-brief",
+    "title": "Internal incident review",
+    "for_each": "select id,reference from tickets",
+    "file": "reference",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Recorded incident",
+        "note": "Internal record. Confirm impact and recovery evidence before sharing.",
+        "sql": "select reference,name,requester,owner,status,opened_at,response_due,resolve_due,resolution from tickets where id=$1"
+      },
+      {
+        "title": "Activity",
+        "sql": "select actor,action,note,created_at from activity where entity_type='tickets' and entity_id=$1 order by created_at,id"
+      }
+    ]
+  },
+  {
+    "name": "change-brief",
+    "title": "Change review and approval record",
+    "for_each": "select id,reference from changes",
+    "file": "reference",
+    "sections": [
+      {
+        "title": "Plan and decision",
+        "note": "An approval record does not execute infrastructure changes.",
+        "sql": "select reference,name,owner,risk,scheduled_at,plan,rollback,evidence,status,approved_by,approval_note,outcome from changes where id=$1"
+      },
+      {
+        "title": "Related open incidents",
+        "sql": "select t.reference,t.name,t.priority,t.owner from tickets t join changes c on c.service_id=t.service_id where c.id=$1 and t.status in ('open','pending')"
+      }
+    ]
+  },
+  {
+    "name": "custody-record",
+    "title": "Asset custody review",
+    "for_each": "select id,reference from assets",
+    "file": "reference",
+    "sections": [
+      {
+        "title": "Recorded custody",
+        "sql": "select reference,name,custodian,status,warranty_on,review_on,disposal_evidence from assets where id=$1"
+      },
+      {
+        "title": "Incident history",
+        "sql": "select reference,name,status,resolution from tickets where asset_id=$1 order by opened_at"
+      }
     ]
   }
 ]

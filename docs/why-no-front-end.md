@@ -1,24 +1,9 @@
-# Why there is no front end
+# Why the free version has no front end
 
-Freshservice is a database with a subscription. The tables underneath it are ordinary: a few entities, a few relationships, a handful of workflows you repeat every week. What you pay for is the layer on top that lets people who do not write SQL get at those tables. Screens, filters, dashboards, forms.
+The database holds the register. The operator asks Claude Code, Codex, OpenCode or Cursor to read and update it through one CLI. The five weekly jobs are incident triage, overdue response review, recurring problem review, change review and asset custody review.
 
-That layer used to be the whole product, because talking to a database was hard. It is not hard any more. Open this folder in Claude Code, describe what you want, and it writes the query, runs it, and explains the answer. Ask a question the dashboard never had a chart for and you still get an answer.
+npm run view writes read-only HTML snapshots. npm run docs writes incident briefs, change approval records and custody records in the business brand. They are files to inspect or print, not a web application. They do not update themselves or accept edits.
 
-## What you gain
+Freshservice also supplies an employee portal, email intake, mobile access, discovery, integrations, routing and service calendars. This base does not provide those connections, offline capture, drag and drop or authenticated multi-user screens. Enterprise DNA can build the required workflow and interfaces into a scoped version and run it through Omni. Hosting and agent subscriptions have separate costs.
 
-- **Better answers.** A dashboard shows what the vendor decided to chart. Here you ask your own question, in your own words, and get it answered against your own data.
-- **No seats.** Everyone who needs to look can look. The bill does not grow with headcount.
-- **Your data in your Postgres.** Plain tables. Back them up, query them from anything, leave any time. There is no export step because there is nothing to leave.
-- **A process that matches you.** When your way of working changes, you add a command. You do not wait for a feature request to clear.
-
-## What you give up
-
-- **A visual board.** Stages are a table you ask about, not cards you drag.
-- **A phone app.** It runs where Claude Code runs.
-- **A vendor help desk.** This is open source. Enterprise DNA supports the installed version for businesses that want someone to call.
-
-## Who this fits
-
-Small teams who already use Claude Code, or who would rather learn to ask than learn another interface. If your team needs a screen to look at all day, keep Freshservice. If you need the answers more than the screens, this is cheaper, faster and yours.
-
-Installed and run for you: https://enterprisedna.co/omni/instead-of/freshservice
+Local PGlite supports one process at a time. DATABASE_URL selects shared Postgres. Decide access, recovery and operations before moving beyond the fictional demo.

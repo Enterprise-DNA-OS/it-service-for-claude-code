@@ -1,11 +1,11 @@
-# /compliance
+# /draft-incident
 
-Read docs/compliance.md. Separate cited legal principles from internal operating policies. Findings require a responsible reviewer and do not certify compliance.
+Read the full ticket and activity first. Drafts stay in drafts/. Check evidence before sharing; this workflow never sends.
 
 Run:
 
 ```bash
-npm run service -- compliance
+npm run service -- draft-incident --ticket=T-1
 ```
 
 Replace example facts and dates with confirmed values. Append --json for structured output. Summarise the returned records, dates and missing facts. Do not invent an event or send anything.
