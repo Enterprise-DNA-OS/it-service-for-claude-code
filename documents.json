@@ -8,7 +8,7 @@
       {
         "title": "Recorded incident",
         "note": "Internal record. Confirm impact and recovery evidence before sharing.",
-        "sql": "select reference,name,requester,owner,status,opened_at,response_due,resolve_due,resolution from tickets where id=$1"
+        "sql": "select field, value from tickets r cross join lateral (values ('reference',r.reference::text), ('name',r.name::text), ('requester',r.requester::text), ('owner',r.owner::text), ('status',r.status::text), ('opened at',r.opened_at::text), ('response due',r.response_due::text), ('resolve due',r.resolve_due::text), ('resolution',r.resolution::text)) v(field,value) where r.id=$1"
       },
       {
         "title": "Activity",
@@ -25,7 +25,7 @@
       {
         "title": "Plan and decision",
         "note": "An approval record does not execute infrastructure changes.",
-        "sql": "select reference,name,owner,risk,scheduled_at,plan,rollback,evidence,status,approved_by,approval_note,outcome from changes where id=$1"
+        "sql": "select field, value from changes r cross join lateral (values ('reference',r.reference::text), ('name',r.name::text), ('owner',r.owner::text), ('risk',r.risk::text), ('scheduled at',r.scheduled_at::text), ('plan',r.plan::text), ('rollback',r.rollback::text), ('evidence',r.evidence::text), ('status',r.status::text), ('approved by',r.approved_by::text), ('approval note',r.approval_note::text), ('outcome',r.outcome::text)) v(field,value) where r.id=$1"
       },
       {
         "title": "Related open incidents",
@@ -41,7 +41,7 @@
     "sections": [
       {
         "title": "Recorded custody",
-        "sql": "select reference,name,custodian,status,warranty_on,review_on,disposal_evidence from assets where id=$1"
+        "sql": "select field, value from assets r cross join lateral (values ('reference',r.reference::text), ('name',r.name::text), ('custodian',r.custodian::text), ('status',r.status::text), ('warranty on',r.warranty_on::text), ('review on',r.review_on::text), ('disposal evidence',r.disposal_evidence::text)) v(field,value) where r.id=$1"
       },
       {
         "title": "Incident history",
